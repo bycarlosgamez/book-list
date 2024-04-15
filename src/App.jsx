@@ -5,7 +5,7 @@ import BookList from './components/BookList';
 function App() {
   const [books, setBooks] = useState([]);
 
-  const handleSubmit = (title) => {
+  const addBook = (title) => {
     const updatedBooks = [
       ...books,
       { id: Math.round(Math.random() * 999), title },
@@ -13,10 +13,15 @@ function App() {
     setBooks(updatedBooks);
   };
 
+  const delateBookById = (id) => {
+    const updatedBooks = books.filter((book) => id !== book.id);
+    setBooks(updatedBooks);
+  };
+
   return (
     <div className='app'>
-      <BookList books={books} />
-      <BookCreate onSubmit={handleSubmit} />
+      <BookList books={books} onDeleteBook={delateBookById} />
+      <BookCreate onAddBook={addBook} />
     </div>
   );
 }
