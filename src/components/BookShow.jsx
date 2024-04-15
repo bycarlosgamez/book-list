@@ -1,5 +1,6 @@
-function BookShow() {
-  return <div>BookShow</div>;
+function BookShow({ book }) {
+  const { title } = book;
+  return <div className='book-show'>{title}</div>;
 }
 
 export default BookShow;
