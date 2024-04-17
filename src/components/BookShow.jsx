@@ -1,11 +1,11 @@
-import { useState, useContext } from 'react';
-import BooksContext from '../context/books';
+import { useState } from 'react';
 import BookEdit from './BookEdit';
+import useBooksContext from '../hooks/useBooksContext';
 
 function BookShow({ book }) {
   const [showEdit, setShowEdit] = useState(false);
 
-  const { delateBookById } = useContext(BooksContext);
+  const { delateBookById } = useBooksContext;
 
   const { title, id } = book;
 
